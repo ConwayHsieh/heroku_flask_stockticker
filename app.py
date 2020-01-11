@@ -3,6 +3,7 @@ import simplejson
 import pandas as pd
 from bokeh.plotting import figure
 from bokeh.embed import components
+from bokeh.io import show
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
@@ -44,6 +45,7 @@ def plot():
         p.line(x=df['Date'].values, y=df['Adj. Open'].values,line_width=2, \
             line_color="orange", legend_label='Adj. Open')
     script, div = components(p)
+    show(p)
     return render_template('plot.html', script=script, div=div)
 
 if __name__ == '__main__':
