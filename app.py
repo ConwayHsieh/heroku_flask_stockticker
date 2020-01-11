@@ -45,7 +45,7 @@ def plot():
         p.line(x=df['Date'].values, y=df['Adj. Open'].values,line_width=2, \
             line_color="orange", legend_label='Adj. Open')
     script, div = components(p)
-    show(p)
+    #show(p)
     return render_template('plot.html', script=script, div=div)
 
 if __name__ == '__main__':
